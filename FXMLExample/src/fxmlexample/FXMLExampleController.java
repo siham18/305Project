@@ -20,14 +20,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import static javafx.scene.control.SelectionMode.MULTIPLE;
 import javafx.stage.Stage;
  
 public class FXMLExampleController implements Initializable{
     @FXML private ListView fields;
     
     ObservableList<String> content = FXCollections.observableArrayList(
-            "gender", "age", "year", "category", "born In", "died In");
+            "gender", "age", "year", "category", "bornDate", "diedDate",
+            "bornCountry", "bornCity", "diedCountry", "diedCity", "firstname",
+            "surname");
     
     @FXML void newPage (ActionEvent event) throws IOException {
         ObservableList<String> transfer = fields.getSelectionModel().getSelectedItems();

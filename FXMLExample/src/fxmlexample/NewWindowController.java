@@ -11,7 +11,9 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -32,6 +34,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -44,14 +47,19 @@ import org.json.simple.parser.ParseException;
  * @author Graham
  */
 public class NewWindowController implements Initializable{
+    ObservableList<Laureate> everyoneList = FXCollections.observableArrayList();
+    ObservableList<Laureate> anotherList = FXCollections.observableArrayList();
     @FXML private ListView choices;
     @FXML private ToggleGroup gender;
     @FXML private Label yearlabel, yearTolabel;
     @FXML private RadioButton male, female;
-    @FXML private TableView table;
+    @FXML private TableView<Laureate> table;
     @FXML private TextField fieldText;
     @FXML private Slider date, dateTo, age;
     @FXML private ComboBox comboField;
+    @FXML private TableColumn<Laureate, String> genderCol, ageCol, yearCol, categoryCol, bornDateCol,
+            diedDateCol, bornCountryCol, diedCountryCol, bornCityCol,
+            diedCityCol, firstnameCol, surnameCol;
     
     ObservableList<String> content = FXCollections.observableArrayList(
             "gender", "age", "year", "category", "bornIn", "diedIn", 
@@ -68,22 +76,48 @@ public class NewWindowController implements Initializable{
         choices.getSelectionModel().getSelectedItem();
     }
     public void setChoices(ObservableList<String> transfer){
-        int i =0;
-        for (String each: transfer){
-            TableColumn col = (TableColumn)table.getColumns().get(i);
-            col.setText(each);
-            i++;
-        }
+      for (Object each: table.getColumns()){
+          TableColumn col = (TableColumn)each;
+          if(transfer.contains(col.getText())){
+              col.setVisible(true);
+          }
+      }
     }
-    
-    public void fetchData() throws MalformedURLException, IOException, ParseException{
-        String url = "http://api.nobelprize.org/v1/laureate.json?";
-        //url = url + choices.getSelectionModel().getSelectedItem();
-        //url = url + "=";
+    public void inputData(){
+        table.getColumns().get(0).setVisible(false);
+        table.getColumns().get(0).setVisible(true);
+        table.getItems().clear();
+        table.getItems().addAll(everyoneList);  
+    }
+    public void fillList() throws IOException, IOException, MalformedURLException, ParseException, IllegalArgumentException, IllegalAccessException{
+        everyoneList.clear();
+        fetchData();
+    }
+    public void newSearch() throws IOException, MalformedURLException, ParseException, IllegalArgumentException, IllegalAccessException {
+        fillList();
+        inputData();
+    }
+    public void addSearch() throws IOException, IOException, MalformedURLException, ParseException, IllegalArgumentException, IllegalAccessException{
+        Set<Laureate> list = new HashSet<>();
+        Set<Laureate> list2 = new HashSet<>();
+        for (Laureate each : everyoneList){
+            list.add(each);
+        }
+        fillList();
+        for (Laureate each : everyoneList){
+            list2.add(each);
+        }
+        list.retainAll(list2);
+        everyoneList.clear();
+        for (Laureate each : list){
+            everyoneList.add(each);
+        }
         
-        //url = url + fieldValue.getText();
-        //if(fieldValueTo.isVisible())
-            //url = url + "&yearTo=" + fieldValueTo;
+        inputData();
+    }
+    public void fetchData() throws MalformedURLException, IOException, ParseException, IllegalArgumentException, IllegalAccessException{
+        String url = "http://api.nobelprize.org/v1/";
+        url += getInput();
         
         URL nobelUrl = new URL(url);
         URLConnection con = nobelUrl.openConnection();
@@ -93,20 +127,84 @@ public class NewWindowController implements Initializable{
 
         inputLine = in.readLine();
         
-        
         JSONObject thing = (JSONObject) parser.parse(inputLine);
         JSONArray list = (JSONArray)thing.get("laureates");
-        System.out.println(list.size());
-        //JSONObject rawr = (JSONObject)list.get(0);
-        //Laureate try1 = new Laureate(rawr);
-        //System.out.println(try1.firstname());
+        for (Object each : list){
+            Laureate person = new Laureate((JSONObject)each);
+            person.setLaureate();
+            if ("firstname".equals(choices.getSelectionModel().getSelectedItem())){
+                if(person.getFirstname().contains(fieldText.getText())){
+                    everyoneList.add(person);
+                }
+            } else if ("surname".equals(choices.getSelectionModel().getSelectedItem())){
+                if(person.getSurname().contains(fieldText.getText())){
+                    everyoneList.add(person);
+                }
+            } else {
+                everyoneList.add(person);
+            }
+            
+        }
     }
-    
+    private String getInput() {
+        String returnValue = "";
+        if("category".equals(choices.getSelectionModel().getSelectedItem())||
+                "year".equals(choices.getSelectionModel().getSelectedItem())||
+                "numberOfLaureates".equals(choices.getSelectionModel().getSelectedItem())  ){
+            returnValue += "prize.json?";
+        }
+        else {
+            returnValue += "laureate.json?";
+        }
+        if ("gender".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "gender=" + gender.getSelectedToggle().getUserData();
+        }
+        else if("bornIn".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "bornDate=" + Math.round(date.getValue()) + "&bornDateTo=" + Math.round(dateTo.getValue());
+        }
+        else if ("diedIn".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "diedDate=" + Math.round(date.getValue()) + "&diedDateTo=" + Math.round(dateTo.getValue());
+        }
+        else if ("firstname".equals(choices.getSelectionModel().getSelectedItem())){
+            ;
+        }
+        else if ("surtname".equals(choices.getSelectionModel().getSelectedItem())){
+            ;
+        }
+        else if ("diedCity".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "diedCity=" + fieldText.getText();
+        }
+        else if ("bornCity".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "bornCity=" + fieldText.getText();
+        }
+        else if ("diedCountry".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "diedCountry=" + fieldText.getText();
+        }
+        else if ("bornCountry".equals(choices.getSelectionModel().getSelectedItem())){
+            returnValue += "bornCountry=" + fieldText.getText();
+        }
+        return returnValue;
+    }   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         choices.getItems().setAll(content);
         male.setToggleGroup(gender);
+        male.setUserData("male");
+        female.setUserData("female");
         female.setToggleGroup(gender);
+        
+        genderCol.setCellValueFactory(new PropertyValueFactory("gender"));
+        yearCol.setCellValueFactory(new PropertyValueFactory("year"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory("category"));
+        bornDateCol.setCellValueFactory(new PropertyValueFactory("bornDate"));
+        diedDateCol.setCellValueFactory(new PropertyValueFactory("diedDate"));
+        bornCountryCol.setCellValueFactory(new PropertyValueFactory("bornCountry"));
+        diedCountryCol.setCellValueFactory(new PropertyValueFactory("diedCountry"));
+        bornCityCol.setCellValueFactory(new PropertyValueFactory("bornCity"));
+        diedCityCol.setCellValueFactory(new PropertyValueFactory("diedCity"));
+        firstnameCol.setCellValueFactory(new PropertyValueFactory("firstname"));
+        surnameCol.setCellValueFactory(new PropertyValueFactory("surname"));
+        
         date.valueProperty().addListener(new ChangeListener(){
             @Override
             public void changed(ObservableValue arg0, Object arg1, Object arg2){
@@ -174,11 +272,9 @@ public class NewWindowController implements Initializable{
             }
         }
         });
-        
-         
-        
-        
         }
 }    
     
+
+
 

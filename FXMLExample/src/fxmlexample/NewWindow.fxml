@@ -25,24 +25,23 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Label fx:id="fieldLabel" prefHeight="21.0" prefWidth="252.0" text="Filler Text" />
-                              <ListView fx:id="choices" layoutX="-1.0" onMouseClicked="#fillValue" prefHeight="31.0" prefWidth="294.0" AnchorPane.bottomAnchor="162.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0" />
-                              <Button fx:id="confirmButton" layoutX="156.0" layoutY="118.0" mnemonicParsing="false" onAction="#fetchData" prefHeight="31.0" prefWidth="128.0" text="NewSearch" />
-                              <Button layoutX="-1.0" layoutY="142.0" mnemonicParsing="false" onAction="#newPage" prefHeight="51.0" prefWidth="96.0" text="BackButton" />
+                              <ListView fx:id="choices" layoutX="-1.0" onMouseClicked="#fillValue" prefHeight="31.0" prefWidth="294.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="confirmButton" layoutX="156.0" layoutY="118.0" mnemonicParsing="false" onAction="#newSearch" prefHeight="31.0" prefWidth="128.0" text="NewSearch" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
+                              <Button layoutX="-1.0" layoutY="142.0" mnemonicParsing="false" onAction="#newPage" prefHeight="51.0" prefWidth="96.0" text="BackButton" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="150.0" />
                               <TextField fx:id="fieldText" layoutX="33.0" layoutY="50.0" visible="false" />
-                              <Button layoutX="156.0" layoutY="152.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Specific" />
-                              <Slider fx:id="date" layoutX="14.0" layoutY="37.0" max="2017.0" min="1900.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" visible="false" />
+                              <Button layoutX="159.0" layoutY="156.0" mnemonicParsing="false" onAction="#addSearch" prefHeight="31.0" prefWidth="128.0" text="NarrowSearch" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0" />
+                              <Slider fx:id="date" layoutX="14.0" layoutY="37.0" max="2017.0" min="1900.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="50.0" />
                               <Slider fx:id="dateTo" layoutX="14.0" layoutY="88.0" max="2017.0" min="1900.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" value="1900.0" visible="false" />
-                              <ComboBox fx:id="comboField" layoutX="47.0" layoutY="66.0" prefWidth="150.0" promptText="choices" visible="false" />
+                              <ComboBox fx:id="comboField" layoutX="47.0" layoutY="66.0" prefWidth="150.0" promptText="choices" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0" />
                               <Label fx:id="yearlabel" layoutX="195.0" layoutY="49.0" text="year" visible="false" />
                               <Label fx:id="yearTolabel" layoutX="195.0" layoutY="89.0" text="yearTo" visible="false" />
-                              <RadioButton fx:id="female" layoutX="91.0" layoutY="79.0" mnemonicParsing="false" text="female" visible="false">
+                              <RadioButton fx:id="female" layoutX="216.0" layoutY="89.0" mnemonicParsing="false" text="female" visible="false" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="89.0">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="gender" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="male" layoutX="181.0" layoutY="67.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" text="male" toggleGroup="$gender" visible="false" />
-                              <Slider fx:id="age" layoutX="69.0" layoutY="70.0" visible="false" />
+                              <RadioButton fx:id="male" layoutX="118.0" layoutY="86.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="119.0" text="male" toggleGroup="$gender" visible="false" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="104.0" AnchorPane.topAnchor="86.0" />
+                              <Slider fx:id="age" layoutX="69.0" layoutY="70.0" visible="false" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="70.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -58,14 +57,18 @@
                <children>
                   <TableView fx:id="table" prefHeight="194.0" prefWidth="293.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="col1" prefWidth="75.0" text="rawr" />
-                      <TableColumn fx:id="col2" prefWidth="75.0" />
-                        <TableColumn fx:id="col3" prefWidth="75.0" />
-                        <TableColumn fx:id="col4" prefWidth="75.0" />
-                        <TableColumn fx:id="col5" prefWidth="75.0" />
-                        <TableColumn fx:id="col6" prefWidth="75.0" />
-                        <TableColumn fx:id="col7" prefWidth="75.0" />
-                        <TableColumn fx:id="col8" prefWidth="75.0" />
+                      <TableColumn fx:id="categoryCol" prefWidth="75.0" text="category" visible="false" />
+                      <TableColumn fx:id="firstnameCol" prefWidth="75.0" text="firstname" visible="false" />
+                        <TableColumn fx:id="surnameCol" prefWidth="75.0" text="surname" visible="false" />
+                        <TableColumn fx:id="bornCountryCol" prefWidth="75.0" text="bornCountry" visible="false" />
+                        <TableColumn fx:id="bornCityCol" prefWidth="75.0" text="bornCity" visible="false" />
+                        <TableColumn fx:id="diedCountryCol" prefWidth="75.0" text="diedCountry" visible="false" />
+                        <TableColumn fx:id="diedCityCol" prefWidth="75.0" text="diedCity" visible="false" />
+                        <TableColumn fx:id="genderCol" prefWidth="75.0" text="gender" visible="false" />
+                        <TableColumn fx:id="ageCol" prefWidth="75.0" text="age" visible="false" />
+                        <TableColumn fx:id="bornDateCol" prefWidth="75.0" text="bornDate" visible="false" />
+                        <TableColumn fx:id="diedDateCol" prefWidth="75.0" text="diedDate" visible="false" />
+                        <TableColumn fx:id="yearCol" prefWidth="75.0" text="year" visible="false" />
                     </columns>
                   </TableView>
                </children>
