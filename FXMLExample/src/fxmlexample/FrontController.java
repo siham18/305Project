@@ -7,7 +7,9 @@ package fxmlexample;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +18,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -24,13 +32,20 @@ import javafx.stage.Stage;
  */
 public class FrontController implements Initializable {
 
-    @FXML
-    private Button general;
+    @FXML private Button general;
+    @FXML public ImageView im2;
+    @FXML public ImageView im1;
 
-    @FXML public void openGeneral(){
+    @FXML public void openGeneral(ActionEvent event) throws Exception{
         
+       
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("fxml_example.fxml"));
+        Parent queryResult = (Parent)fxml.load();
         
+        Scene newScene = new Scene(queryResult);
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(newScene);
+        stage.show();
     }
     /**
      * Initializes the controller class.
