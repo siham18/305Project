@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="111.0" layoutY="158.0" prefHeight="27.0" prefWidth="123.0" />
+      <TextField layoutX="111.0" layoutY="110.0" prefHeight="27.0" prefWidth="123.0" />
+      <ScrollPane layoutX="12.0" layoutY="195.0" prefHeight="404.0" prefWidth="627.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="528.0" prefWidth="598.0" />
+        </content>
+      </ScrollPane>
+      <Text layoutX="26.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" wrappingWidth="70.21875" />
+      <ComboBox layoutX="443.0" layoutY="110.0" prefWidth="150.0" />
+      <Text layoutX="26.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" textAlignment="CENTER" wrappingWidth="70.21875" />
+      <Text layoutX="348.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" textAlignment="CENTER" wrappingWidth="70.21875" />
+      <Text fill="#5d0c80" fontSmoothingType="LCD" layoutX="119.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search For Laureate" textAlignment="CENTER" wrappingWidth="409.21875">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Text>
+      <Button layoutX="12.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Back" />
+      <Button layoutX="551.0" layoutY="158.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Search" />
+   </children>
+</Pane>
