@@ -34,4 +34,9 @@ public class ImageCl {
         //URL url2 = new URL(url);
         return url;
     }
+    
+    public void getLaureateInfo(){
+        
+    
+    }
 }
