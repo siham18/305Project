@@ -52,7 +52,13 @@ public class FrontController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        /*String im11 = "literature.jpg";
+        String im22 = "nobelprizesPIC.jpg";
+        Image image2 = new Image(im22);
+        Image image = new Image(im11);
+        im2.setImage(image2);
+        im1.setImage(image);
+       */ // TODO
     }    
     
 }
