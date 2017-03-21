@@ -24,7 +24,7 @@
             <Font size="47.0" />
          </font>
       </Text>
-      <Button layoutX="137.0" layoutY="177.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="88.0" text="Laureates" />
+      <Button layoutX="137.0" layoutY="177.0" mnemonicParsing="false" onAction="#openLaureate" prefHeight="40.0" prefWidth="88.0" text="Laureates" />
       <Button layoutX="264.0" layoutY="177.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="88.0" text="Prizes" />
       <Button fx:id="general" layoutX="383.0" layoutY="177.0" mnemonicParsing="false" onAction="#openGeneral" prefHeight="40.0" prefWidth="88.0" text="General" />
    </children>
