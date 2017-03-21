@@ -47,6 +47,19 @@ public class FrontController implements Initializable {
         stage.setScene(newScene);
         stage.show();
     }
+    
+     @FXML public void openLaureate(ActionEvent event) throws Exception{
+        
+       
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        Parent queryResult = (Parent)fxml.load();
+        
+        Scene newScene = new Scene(queryResult);
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(newScene);
+        stage.show();
+    }
+    
     /**
      * Initializes the controller class.
      */
