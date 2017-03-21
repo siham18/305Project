@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlexample.LaureateSearchController">
    <children>
       <TextField fx:id="year" layoutX="111.0" layoutY="158.0" prefHeight="27.0" prefWidth="123.0" />
       <TextField fx:id="Fname" layoutX="111.0" layoutY="110.0" prefHeight="27.0" prefWidth="123.0" />
