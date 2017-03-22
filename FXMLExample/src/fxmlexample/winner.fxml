@@ -13,11 +13,6 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="423.0">
                <children>
                   <ImageView fx:id="pic4" fitHeight="231.0" fitWidth="213.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="name" layoutX="243.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%key.unspecified" wrappingWidth="139.21875">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Text>
                </children>
             </AnchorPane>
         </content>
