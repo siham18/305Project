@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +39,9 @@ public class LaureateSearchController implements Initializable {
     private Button back;
     @FXML
     private Button search;
+    @FXML
+    private Button open;
+    @FXML private ListView list;
 
     /**
      * Initializes the controller class.
@@ -61,10 +64,9 @@ public class LaureateSearchController implements Initializable {
     }
      
       @FXML public void openLaureate(ActionEvent event) throws Exception{
-        
-       
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-        Parent queryResult = (Parent)fxml.load();
+
+        FXMLLoader fxmll = new FXMLLoader(getClass().getResource("winner.fxml"));
+        Parent queryResult = (Parent)fxmll.load();
         
         Scene newScene = new Scene(queryResult);
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();

@@ -42,15 +42,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML private TextField sharePrize;
     @FXML private Text fullName112111;
     @FXML private TextArea work;
-    @FXML private Button back;  
-
-    @FXML
-    private void addPic(MouseEvent event) {
-    }
-
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-    }
+    @FXML private Button back;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

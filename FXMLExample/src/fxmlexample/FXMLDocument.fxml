@@ -8,13 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication4.FXMLDocumentController">
    <children>
-      <ScrollPane layoutX="1.0" layoutY="68.0" prefHeight="424.0" prefWidth="457.0">
+      <ScrollPane layoutX="4.0" layoutY="69.0" prefHeight="424.0" prefWidth="494.0">
         <content>
           <AnchorPane fx:id="died" minHeight="0.0" minWidth="0.0" prefHeight="492.0" prefWidth="443.0">
                <children>
-                  <ImageView id="JP" fx:id="JP" fitHeight="268.0" fitWidth="212.0" layoutX="14.0" layoutY="14.0" onDragDetected="#addPic" onMouseClicked="#addPic" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="JP" fx:id="JP" fitHeight="268.0" fitWidth="212.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#addPic" pickOnBounds="true" preserveRatio="true" />
                   <Text fx:id="fullName" layoutX="226.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="182.251953125">
                      <font>
                         <Font size="24.0" />

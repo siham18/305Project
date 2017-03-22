@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlexample.WinnerController">
+   <children>
+      <ScrollPane layoutY="96.0" prefHeight="404.0" prefWidth="438.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="423.0">
+               <children>
+                  <ImageView fx:id="pic4" fitHeight="231.0" fitWidth="213.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="name" layoutX="243.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%key.unspecified" wrappingWidth="139.21875">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button fx:id="Back" layoutX="29.0" layoutY="60.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="83.0" text="Back" />
+      <Text layoutX="112.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laureate" wrappingWidth="225.0">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

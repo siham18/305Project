@@ -11,12 +11,12 @@
    <children>
       <ImageView fx:id="im1" fitHeight="100.0" fitWidth="317.0" focusTraversable="true" layoutX="21.0" layoutY="243.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../nobelprizesPIC.jpg" />
+            <Image url="file:/Users/Siham/Desktop/305Project/FXMLExample/nobelprizesPIC.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="im2" fitHeight="107.0" fitWidth="319.0" layoutX="308.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../literature.jpg" />
+            <Image url="file:/Users/Siham/Desktop/305Project/FXMLExample/literature.jpg" />
          </image>
       </ImageView>
       <Text fill="#8a4949" layoutX="98.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nobel Prize Data " textAlignment="CENTER" underline="true" wrappingWidth="419.67626953125">
@@ -24,7 +24,7 @@
             <Font size="47.0" />
          </font>
       </Text>
-      <Button layoutX="137.0" layoutY="177.0" mnemonicParsing="false" onAction="#openLaureate" prefHeight="40.0" prefWidth="88.0" text="Laureates" />
+      <Button fx:id="lau" layoutX="137.0" layoutY="177.0" mnemonicParsing="false" onAction="#openLaureate" prefHeight="40.0" prefWidth="88.0" text="Laureates" />
       <Button layoutX="264.0" layoutY="177.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="88.0" text="Prizes" />
       <Button fx:id="general" layoutX="383.0" layoutY="177.0" mnemonicParsing="false" onAction="#openGeneral" prefHeight="40.0" prefWidth="88.0" text="General" />
    </children>

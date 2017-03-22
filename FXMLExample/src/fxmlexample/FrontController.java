@@ -33,6 +33,7 @@ import javafx.scene.image.ImageView;
 public class FrontController implements Initializable {
 
     @FXML private Button general;
+    @FXML private Button lau;
     @FXML public ImageView im2;
     @FXML public ImageView im1;
 
@@ -51,7 +52,7 @@ public class FrontController implements Initializable {
      @FXML public void openLaureate(ActionEvent event) throws Exception{
         
        
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("LaureateSearch.fxml"));
         Parent queryResult = (Parent)fxml.load();
         
         Scene newScene = new Scene(queryResult);
