@@ -66,13 +66,15 @@ public class FrontController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*String im11 = "literature.jpg";
-        String im22 = "nobelprizesPIC.jpg";
-        Image image2 = new Image(im22);
-        Image image = new Image(im11);
+        String im = "http://blog.univ-reunion.fr/blogpapang/files/2016/10/nobelprizes.jpg";
+        Image image2 = new Image(im);
+        System.out.println(im);
         im2.setImage(image2);
-        im1.setImage(image);
-       */ // TODO
+        
+        String imm = "https://www.nobelprize.org/images/literature.jpg";
+        Image image22 = new Image(imm);
+        System.out.println(im);
+        im1.setImage(image22);
     }    
     
 }
