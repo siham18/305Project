@@ -24,6 +24,7 @@ public class ImageCl {
         this.year = y;
         this.category = c;
         this.name = n;
+      
     }
     
     public String getURL(){
