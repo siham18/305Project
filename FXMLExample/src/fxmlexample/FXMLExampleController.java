@@ -26,7 +26,7 @@ public class FXMLExampleController implements Initializable{
     @FXML private ListView fields;
     
     ObservableList<String> content = FXCollections.observableArrayList(
-            "gender", "age", "year", "category", "bornDate", "diedDate",
+            "gender", "year", "category", "bornDate", "diedDate",
             "bornCountry", "bornCity", "diedCountry", "diedCity", "firstname",
             "surname");
     

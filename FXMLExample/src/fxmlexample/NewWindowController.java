@@ -35,6 +35,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -52,17 +53,17 @@ public class NewWindowController implements Initializable{
     @FXML private ListView choices;
     @FXML private ToggleGroup gender;
     @FXML private Label yearlabel, yearTolabel;
-    @FXML private RadioButton male, female;
+    @FXML private RadioButton male, female, org;
     @FXML private TableView<Laureate> table;
     @FXML private TextField fieldText;
-    @FXML private Slider date, dateTo, age;
+    @FXML private Slider date, dateTo;
     @FXML private ComboBox comboField;
     @FXML private TableColumn<Laureate, String> genderCol, ageCol, yearCol, categoryCol, bornDateCol,
             diedDateCol, bornCountryCol, diedCountryCol, bornCityCol,
             diedCityCol, firstnameCol, surnameCol;
     
     ObservableList<String> content = FXCollections.observableArrayList(
-            "gender", "age", "year", "category", "bornIn", "diedIn", 
+            "gender", "year", "category", "bornIn", "diedIn", 
             "bornCountry", "diedCountry", "bornCity", "diedCity", "firstname", "surname");
     
     @FXML void newPage (ActionEvent event) throws IOException {
@@ -185,12 +186,17 @@ public class NewWindowController implements Initializable{
         }
         return returnValue;
     }   
+    public void grabPicture() throws MalformedURLException, IOException{
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         choices.getItems().setAll(content);
         male.setToggleGroup(gender);
         male.setUserData("male");
         female.setUserData("female");
+        org.setToggleGroup(gender);
+        org.setUserData("organization");
         female.setToggleGroup(gender);
         
         genderCol.setCellValueFactory(new PropertyValueFactory("gender"));
@@ -239,12 +245,6 @@ public class NewWindowController implements Initializable{
             else{
                 male.setVisible(true);
                 female.setVisible(true);
-            }
-            if ("age".equals(newValue)){
-                age.setVisible(true);
-            }
-            else{
-                age.setVisible(false);
             }
             if ("bornIn".equals(newValue) || "diedIn".equals(newValue)){
                 date.setVisible(true);
