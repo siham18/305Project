@@ -39,7 +39,7 @@ public class WinnerController implements Initializable {
         ImageCl image = new ImageCl("physics", "1935", "chadwick");
         String im = image.getURL();
         Image image2 = new Image(im);
-        System.out.println(im);
+        //System.out.println(im);
         pic4.setImage(image2);
     }
     

@@ -75,6 +75,7 @@ public class FrontController implements Initializable {
         Image image22 = new Image(imm);
         System.out.println(im);
         im1.setImage(image22);
+        
     }    
     
 }
