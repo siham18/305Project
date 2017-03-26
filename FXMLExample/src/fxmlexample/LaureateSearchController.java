@@ -175,7 +175,7 @@ public class LaureateSearchController implements Initializable{
        }*/
        
         
-       tableView.
+       
        
        
        System.out.println(":" + p2.prizes.size() + ":" + lists.size());
