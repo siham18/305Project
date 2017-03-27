@@ -196,7 +196,7 @@ public class NewWindowController implements Initializable{
         male.setUserData("male");
         female.setUserData("female");
         org.setToggleGroup(gender);
-        org.setUserData("organization");
+        org.setUserData("org");
         female.setToggleGroup(gender);
         
         genderCol.setCellValueFactory(new PropertyValueFactory("gender"));
@@ -234,6 +234,7 @@ public class NewWindowController implements Initializable{
                     "bornCity".equals(newValue) || "diedCity".equals(newValue)||
                     "surname".equals(newValue) || "firstname".equals(newValue)){
                 fieldText.setVisible(true);
+                fieldText.setText("********Insert here***********");
             }
             else {
                 fieldText.setVisible(false);
@@ -241,10 +242,12 @@ public class NewWindowController implements Initializable{
             if (!"gender".equals(newValue)){
                 male.setVisible(false);
                 female.setVisible(false);
+                org.setVisible(false);
             }
             else{
                 male.setVisible(true);
                 female.setVisible(true);
+                org.setVisible(true);
             }
             if ("bornIn".equals(newValue) || "diedIn".equals(newValue)){
                 date.setVisible(true);
