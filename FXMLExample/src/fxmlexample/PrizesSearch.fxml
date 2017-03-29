@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlexample.PrizesSearchController">
+   <children>
+      <Text fill="MAROON" fontSmoothingType="LCD" layoutX="144.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Prize" textAlignment="CENTER">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Text>
+      <VBox layoutX="25.0" layoutY="102.0" spacing="15.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <HBox layoutX="91.0" layoutY="102.0" spacing="25.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
+               <children>
+                  <TextField fx:id="yearFrom" layoutX="61.0" layoutY="102.0" prefHeight="27.0" prefWidth="96.0" text="Year From">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="yearTo" prefHeight="27.0" prefWidth="88.0" text="Year To">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <VBox />
+                  <ComboBox fx:id="numLau" prefHeight="27.0" prefWidth="223.0" promptText="Laureates sharing prize ">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <HBox layoutX="91.0" layoutY="142.0" spacing="50.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="91.0">
+               <children>
+                  <ComboBox fx:id="catagory" layoutX="61.0" layoutY="143.0" prefHeight="27.0" prefWidth="167.0" promptText="Catagory">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <Button fx:id="open" layoutX="341.0" layoutY="143.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="126.0" text="Open" />
+                  <Button fx:id="search" mnemonicParsing="false" prefHeight="27.0" prefWidth="126.0" text="Search">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
+            <ScrollPane layoutX="25.0" layoutY="186.0" prefHeight="200.0" prefWidth="550.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <AnchorPane prefHeight="303.0" prefWidth="547.0">
+                     <children>
+                        <ListView fx:id="list" prefHeight="303.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <Button fx:id="back" layoutX="25.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" text="Back" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0" />
+   </children>
+</AnchorPane>
