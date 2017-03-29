@@ -55,10 +55,12 @@ public class PrizesSearchController implements Initializable {
         catagory.getItems().addAll("Physics",
         "Chemistry", "Medicine", "Peace",
         "Literature", "Economics");
+        catagory.setValue("Physics");
         
         //intializes the numLau combobox
         numLau.getItems().clear();
         numLau.getItems().addAll("1", "2","3","4");
+        numLau.setValue("1");
         
         
         // Gets the selected option from the category combobox

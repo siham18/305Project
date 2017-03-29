@@ -57,7 +57,14 @@
                <content>
                   <AnchorPane prefHeight="303.0" prefWidth="547.0">
                      <children>
-                        <ListView fx:id="list" prefHeight="303.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TableView layoutX="30.0" layoutY="26.0" prefHeight="303.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="129.0" text="Prize Category" />
+                            <TableColumn prefWidth="113.0" text="Laureate" />
+                              <TableColumn prefWidth="75.0" text="Year" />
+                              <TableColumn prefWidth="123.0" text="Sharing" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                </content>
