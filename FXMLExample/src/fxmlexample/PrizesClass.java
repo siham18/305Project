@@ -17,7 +17,7 @@ public class PrizesClass {
     public  ArrayList<LaureatesClass> laureates = new ArrayList<>();
     public int numberOfLaureates;
     //public ArrayList<Laureates> laureates = new ArrayList<>();
- 
+     
     public boolean getLaureate(String fname){
         for(int i = 0; i < this.numberOfLaureates; i++){
             if(this.laureates.get(i).firstname.equals(fname))
