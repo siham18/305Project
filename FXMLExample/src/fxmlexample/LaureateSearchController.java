@@ -174,10 +174,6 @@ public class LaureateSearchController implements Initializable{
               
        }*/
        
-        
-       
-       
-       
        System.out.println(":" + p2.prizes.size() + ":" + lists.size());
         
        for(int i = 0; i < lists.size(); i++){
