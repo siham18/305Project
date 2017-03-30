@@ -15,15 +15,23 @@ public class PrizesClass {
     public int yearTo;
     public String category;
     public  ArrayList<LaureatesClass> laureates = new ArrayList<>();
-    public int numberOfLaureates;
     //public ArrayList<Laureates> laureates = new ArrayList<>();
      
     public boolean getLaureate(String fname){
-        for(int i = 0; i < this.numberOfLaureates; i++){
+        for(int i = 0; i < this.laureates.size(); i++){
             if(this.laureates.get(i).firstname.equals(fname))
                 return true;
         }
-        
         return false;
+    }
+    
+    public ArrayList <LaureatesClass> getLaureateList(ArrayList <LaureatesClass> list){
+        //System.out.println("In func");
+        for(int i = 0; i < this.laureates.size(); i++){
+           list.add(this.laureates.get(i));
+           System.out.println(this.laureates.get(i).firstname);
+        }
+        
+        return list;
     }
 }

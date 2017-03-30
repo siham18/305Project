@@ -29,7 +29,6 @@ public class WinnerController implements Initializable {
 
     @FXML
     private ImageView pic4;
-    private Button Back;
     private Text name;
     /**
      * Initializes the controller class.
@@ -43,6 +42,7 @@ public class WinnerController implements Initializable {
         pic4.setImage(image2);
     }
     
+    /*
     @FXML
     public void goBack(ActionEvent event)throws Exception{
        
@@ -54,6 +54,6 @@ public class WinnerController implements Initializable {
         stage.setScene(newScene);
         stage.show();
     }
-    
+    */
     
 }
