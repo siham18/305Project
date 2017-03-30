@@ -23,8 +23,7 @@ public class ImageCl {
         this.Beginning = "https://www.nobelprize.org//nobel_prizes/";
         this.year = y;
         this.category = c;
-        this.name = n;
-      
+        this.name = n.toLowerCase();
     }
     
     public String getURL(){

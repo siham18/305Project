@@ -53,9 +53,7 @@ public class LaureateSearchController implements Initializable{
     @FXML public void initialize(URL urll, ResourceBundle rb){
        Dropdown.setItems(names);
        Dropdown.setValue("peace");
-       singleton = Singleton.getInstance();
-       
-       
+       singleton = Singleton.getInstance();  
     }
     
     //Parse and check for proper input.
@@ -101,7 +99,7 @@ public class LaureateSearchController implements Initializable{
           listv();
           ObservableList<Laureate> everyoneList = FXCollections.observableArrayList();
           System.out.println(chosenC + ":" + chosenN + ":" + chosenY + ":" + singleton.prizes.size());
-          ArrayList <LaureatesClass> laur = singleton.getLaureates(chosenN, chosenY, chosenC);
+          ArrayList <LaureatesClass> laur = singleton.getLaureateList(chosenN, chosenY, chosenC);
           System.out.println(laur.size());
           
     }

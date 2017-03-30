@@ -30,16 +30,33 @@ public class WinnerController implements Initializable {
     @FXML
     private ImageView pic4;
     private Text name;
+    public LaureatesClass laur;
+    public PrizesClass prize;
+    JsonObject singleton;
     /**
      * Initializes the controller class.
      */
+    
+    public void fill(){
+        singleton = Singleton.getInstance();
+        laur = singleton.getLaur(928);
+        prize = singleton.getPrize(laur);
+        //System.out.println(prize.category + ":" + prize.year + ":" + laur.firstname);
+        
+    }
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ImageCl image = new ImageCl("physics", "1935", "chadwick");
+        
+        fill();
+        System.out.println(prize.category + ":" + prize.year + ":" + laur.firstname);
+        ImageCl image = new ImageCl(prize.category, ""+prize.year, laur.surname);
         String im = image.getURL();
         Image image2 = new Image(im);
-        //System.out.println(im);
+        System.out.println(im);
         pic4.setImage(image2);
+       
     }
     
     /*

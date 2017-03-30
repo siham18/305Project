@@ -16,6 +16,7 @@ public class JsonObject {
    public ArrayList<PrizesClass> prizes = new ArrayList<>();
    public  ArrayList<LaureatesClass> laureates = new ArrayList<>();
    public ArrayList<CountryClass> countries = new ArrayList<>();
+   private JsonObject js;
    
    public void getPrizesAtYear(int year){
        int size = this.prizes.size();
@@ -31,9 +32,30 @@ public class JsonObject {
        }
    }
    
-   public ArrayList<LaureatesClass> getLaureates(String fn, String year, String Category){
-       
-       JsonObject js = Singleton.getInstance();
+   public LaureatesClass getLaur(int ID){
+       js = Singleton.getInstance();
+       for(int i = 0; i < js.laureates.size(); i++){
+           if(js.laureates.get(i).id == ID){
+               return js.laureates.get(i);
+           }
+       }
+       return null;
+   }
+   
+   public PrizesClass getPrize(LaureatesClass lau){
+       js = Singleton.getInstance();
+      for(int i = 0; i < js.prizes.size(); i++){
+           for(int j = 0; j< js.prizes.get(i).laureates.size(); j++)
+           if(js.prizes.get(i).laureates.get(j).id == lau.id){
+               return js.prizes.get(i);
+           }
+       }
+       return null;
+   
+   }
+   
+   public ArrayList<LaureatesClass> getLaureateList(String fn, String year, String Category){
+       js = Singleton.getInstance();
        int len = js.prizes.size();
        
        ArrayList <LaureatesClass> list = new ArrayList <>();
