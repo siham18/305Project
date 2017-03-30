@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlexample.FrontController">
+   <children>
+      <ImageView fx:id="im1" fitHeight="100.0" fitWidth="317.0" focusTraversable="true" layoutX="21.0" layoutY="243.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="im2" fitHeight="107.0" fitWidth="319.0" layoutX="308.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fill="#8a4949" layoutX="98.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nobel Prize Data " textAlignment="CENTER" underline="true" wrappingWidth="419.67626953125">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Text>
+      <Button fx:id="lau" layoutX="137.0" layoutY="177.0" mnemonicParsing="false" onAction="#openLaureate" prefHeight="40.0" prefWidth="88.0" text="Laureates" />
+      <Button layoutX="264.0" layoutY="177.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="88.0" text="Prizes" />
+      <Button fx:id="general" layoutX="383.0" layoutY="177.0" mnemonicParsing="false" onAction="#openGeneral" prefHeight="40.0" prefWidth="88.0" text="General" />
+   </children>
+</Pane>
