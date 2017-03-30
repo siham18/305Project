@@ -54,20 +54,6 @@ public class FXMLExampleController implements Initializable{
         // selected item is newValue
         }
         });
-        
-        
-    }
-    
-     @FXML public void back(ActionEvent event) throws Exception{
-        
-       
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("Front.fxml"));
-        Parent queryResult = (Parent)fxml.load();
-        
-        Scene newScene = new Scene(queryResult);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(newScene);
-        stage.show();
     }
 
 }
