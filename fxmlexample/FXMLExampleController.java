@@ -26,7 +26,7 @@ public class FXMLExampleController implements Initializable{
     @FXML private ListView fields;
     
     ObservableList<String> content = FXCollections.observableArrayList(
-            "gender", "age", "year", "category", "bornDate", "diedDate",
+            "gender", "year", "category", "bornDate", "diedDate",
             "bornCountry", "bornCity", "diedCountry", "diedCity", "firstname",
             "surname");
     
@@ -54,20 +54,6 @@ public class FXMLExampleController implements Initializable{
         // selected item is newValue
         }
         });
-        
-        
-    }
-    
-     @FXML public void back(ActionEvent event) throws Exception{
-        
-       
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("Front.fxml"));
-        Parent queryResult = (Parent)fxml.load();
-        
-        Scene newScene = new Scene(queryResult);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(newScene);
-        stage.show();
     }
 
 }
