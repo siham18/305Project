@@ -57,12 +57,12 @@
                <content>
                   <AnchorPane prefHeight="303.0" prefWidth="547.0">
                      <children>
-                        <TableView layoutX="30.0" layoutY="26.0" prefHeight="303.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="list" layoutX="30.0" layoutY="26.0" prefHeight="303.0" prefWidth="547.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn prefWidth="129.0" text="Prize Category" />
-                            <TableColumn prefWidth="113.0" text="Laureate" />
-                              <TableColumn prefWidth="75.0" text="Year" />
-                              <TableColumn prefWidth="123.0" text="Sharing" />
+                            <TableColumn fx:id="prizeCat" prefWidth="129.0" text="Prize Category" />
+                            <TableColumn fx:id="name" prefWidth="113.0" text="Laureate" />
+                              <TableColumn fx:id="yearAwarded" prefWidth="75.0" text="Year" />
+                              <TableColumn fx:id="numSharing" prefWidth="123.0" text="Sharing" />
                           </columns>
                         </TableView>
                      </children>

@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,21 +42,30 @@ public class PrizesSearchController implements Initializable {
     @FXML Button open;
     @FXML Button search;
     @FXML ComboBox numLau;
-    @FXML ListView list;
-    Prizes prize;
+    @FXML ListView<String> list;
+    @FXML private TableColumn <ObservableList<String>, String> prizeCat;
+    @FXML private TableColumn <ObservableList<String>, String> name;
+    @FXML private TableColumn <ObservableList<String>, String> yearAwarded;
+    @FXML private TableColumn <ObservableList<String>, String> numSharing;
+    //ObservableList<String> namesOfCategories = FXCollections.observableArrayList("Physics", "Peace", "Literature", "Economics", 
+     //           "Medicine", "Chemistry");
+    //ObservableList<String> lauSharing = FXCollections.observableArrayList("1", "2","3","4");
+    private String chosenYearTo;
+    private String chosenYearFrom;
+    private String chosenCategory;
+    private String chosenNumLau;
+    private JsonObject p;
+    private JsonObject p2;
+    //private Singleton data;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       //String cat = prize.category();
-       //String toYear = prize.yearTo();
-       //String fromYear = prize.year();
-        
+      
         // Initializes the category combobox
-        catagory.getItems().clear();
-        catagory.getItems().addAll("Physics",
-        "Chemistry", "Medicine", "Peace",
-        "Literature", "Economics");
+        numLau.getItems().clear();
+        numLau.getItems().addAll("Physics", "Peace", "Literature", "Economics", 
+                "Medicine", "Chemistry");
         catagory.setValue("Physics");
         
         //intializes the numLau combobox
