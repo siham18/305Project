@@ -1,6 +1,8 @@
 /*
-    First page 
-*/
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package fxmlexample;
 
 import javafx.application.Application;
@@ -9,6 +11,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author Graham
+ */
 public class FXMLExample extends Application {
     
     @Override
@@ -16,14 +22,18 @@ public class FXMLExample extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Front.fxml"));
         Scene scene = new Scene(root);
         
-        //Fills the singleton object at start and loads the pictures.
-        JsonObject temp = null;
-        temp = Singleton.getInstance();
         stage.setScene(scene);
         stage.show();
+        
     }
     
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
+        
+        
     }
+
 }

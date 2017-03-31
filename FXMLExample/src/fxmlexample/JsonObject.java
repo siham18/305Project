@@ -15,112 +15,27 @@ public class JsonObject {
    
    public ArrayList<PrizesClass> prizes = new ArrayList<>();
    public  ArrayList<LaureatesClass> laureates = new ArrayList<>();
-   public ArrayList<CountryClass> countries = new ArrayList<>();
-   private JsonObject js;
-   public ArrayList<Integer> ID = new ArrayList<>();
+   public ArrayList<CountryClass> country = new ArrayList<>();
    
    public void getPrizesAtYear(int year){
        int size = this.prizes.size();
        for(int i=0; i< size; i++){
            if (this.prizes.get(i).year == year){
-                //System.out.print("\n");
-              // System.out.print(this.prizes.get(i).year + ": " + this.prizes.get(i).category
-              // + " , ");
-              //for(int j = 0; this.prizes.get(i).laureates.size() > j; j++)
+                System.out.print("\n");
+               System.out.print(this.prizes.get(i).year + ": " + this.prizes.get(i).category
+               + " , ");
+              for(int j = 0; this.prizes.get(i).laureates.size() > j; j++)
                   
-                 // System.out.print(this.prizes.get(i).laureates.get(j).firstname + ", ");
+                  System.out.print(this.prizes.get(i).laureates.get(j).firstname + ", ");
            }
        }
    }
    
-   public LaureatesClass getLaur(int ID){
-       js = Singleton.getInstance();
-       for(int i = 0; i < js.laureates.size(); i++){
-           if(js.laureates.get(i).id == ID){
-               return js.laureates.get(i);
-           }
-       }
-       return null;   
-   }
-   
-   public int getLastId(){
-       return ID.get(ID.size() - 1);
-   }
-   
-   public void addId(int Id){
-       ID.add(Id);
-   }
-   
-   public int searchId(String name){
-       js = Singleton.getInstance();
-       String input = name.substring(1 ,name.length()-1);
-
-       for(int i = 0; i < js.laureates.size() - 1; i++){
-           if(js.laureates.get(i).firstname == null || js.laureates.get(i).surname == null){
-               return 0;
-           }
-           String twoIn = input;
-           String oneSearch = (js.laureates.get(i).firstname + " " + js.laureates.get(i).surname);
-            if(twoIn.equals(oneSearch)){
-                System.out.println("\n\n\n\n\n!!!!!!!!!!!!!!!!!--------Helloooooo"+ input +";"+ oneSearch);
-                return js.laureates.get(i).id;
-            }
-       }
-       return 0;
-   }
-   
-   //Finds the prizes class for a specific Laureate.
-   public PrizesClass getPrize(LaureatesClass lau){
-      ArrayList<Integer> listOfIds;
-      js = Singleton.getInstance();
-      
-      for(int i = 0; i < js.prizes.size(); i++){
-          listOfIds = js.prizes.get(i).listOfID();
-          
-           for(int j = 0; j< listOfIds.size(); j++){
-               if(listOfIds.get(j) == lau.id)
-                   return js.prizes.get(i);
-            }
-      }
-       return null;
-   }
-   
-   public ArrayList<LaureatesClass> getLaureateList(String fn, String year, String Category){
-       js = Singleton.getInstance();
-       int len = js.prizes.size();
-       
+   public ArrayList<LaureatesClass> getLaureates(String fn, String year, String Category){
        ArrayList <LaureatesClass> list = new ArrayList <>();
-       if(year == null && fn == null){
-           for(int i = 0; i < len; i++){
-               if(js.prizes.get(i).category.equals(Category)){
-                   list = js.prizes.get(i).getLaureateList(list);
-               }
-           }
-           return list;
-       }
        
-       if(fn == null){
-            for(int i = 0; i < len; i++){
-           String year2 = "" + this.prizes.get(i).year;
-           if(js.prizes.get(i).category.equals(Category) && year2.equals(year)){
-                   list = js.prizes.get(i).getLaureateList(list);
-               }
-            }
-            return list;
-       }
-       if(year == null){
-           for(int i = 0; i < len; i++){
-               if(js.prizes.get(i).category.equals(Category)){
-                   for(int j = 0; j < js.prizes.get(i).laureates.size(); j++){
-                        if(js.prizes.get(i).laureates.get(j).firstname.compareToIgnoreCase(fn) == 0){
-                        list.add(js.prizes.get(i).laureates.get(j));
-                      }
-                   }
-           }
-        }
-           return list;
-       }
-       /*
+       
+       
        if(fn.isEmpty()){
            if(year.isEmpty()){
             for(int i = 0; i < this.prizes.size(); i++){
@@ -166,7 +81,7 @@ public class JsonObject {
                        list.add(this.prizes.get(k).laureates.get(k));
                }}
            }
-       }    */
+       }    
        return list;
     }
 }
