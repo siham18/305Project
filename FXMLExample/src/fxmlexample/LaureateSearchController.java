@@ -35,6 +35,7 @@ public class LaureateSearchController implements Initializable{
     
     @FXML private TextField year;
     @FXML private TextField Fname;
+    @FXML private TextField Lname;
     @FXML private AnchorPane Pane;
     @FXML public ChoiceBox Dropdown;
     @FXML public ChoiceBox FirstN;
@@ -45,9 +46,10 @@ public class LaureateSearchController implements Initializable{
     public String chosenY;
     public String chosenN;
     public String chosenC;
+    @FXML ListView<String> listView;
     private JsonObject singleton;
     @FXML private TableView <LaureatesClass> tableView;
-    @FXML private TableColumn <ArrayList <LaureatesClass>, String> name, lastname, motivation;
+    @FXML private TableColumn <LaureatesClass, String> name, lastname, motivation;
     
     //Sets the Dropdown and gets access to the JsonObject 
     @FXML public void initialize(URL urll, ResourceBundle rb){
@@ -91,16 +93,30 @@ public class LaureateSearchController implements Initializable{
         FXMLLoader fxmll = new FXMLLoader(getClass().getResource("winner.fxml"));
         Parent root1 = (Parent) fxmll.load();
         Stage stage = new Stage();
+        String temp = listView.getSelectionModel().getSelectedItems().toString();
+        System.out.println(temp);
+        
+        int tempp = singleton.searchId(temp);
+        singleton.addId(tempp);
+        System.out.println(tempp);
         stage.setScene(new Scene(root1));  
         stage.show();
     }
       
       @FXML public void getValues(ActionEvent event) throws Exception{
           listv();
-          ObservableList<Laureate> everyoneList = FXCollections.observableArrayList();
-          System.out.println(chosenC + ":" + chosenN + ":" + chosenY + ":" + singleton.prizes.size());
+          
+          //System.out.println(chosenC + ":" + chosenN + ":" + chosenY + ":" + singleton.prizes.size());
           ArrayList <LaureatesClass> laur = singleton.getLaureateList(chosenN, chosenY, chosenC);
           System.out.println(laur.size());
+          singleton.addId(928);
+          ObservableList <String> everyoneList = FXCollections.observableArrayList();
           
+          for(int i = 0; i < laur.size(); i++){
+            everyoneList.add(laur.get(i).firstname + " " + laur.get(i).surname);
+          }
+          //System.out.println(singleton.searchId("[Christian Lous]"));
+          //tableView.getItems().clear();
+          listView.setItems(everyoneList);
     }
 }

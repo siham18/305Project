@@ -27,6 +27,7 @@ public class Singleton {
     public static JsonObject singleton = null;
     public static Image image2;
     public static Image image1;
+   
     
     static public JsonObject Singleton() throws Exception{
     URL url = new URL("http://api.nobelprize.org/v1/prize.json");
@@ -35,7 +36,7 @@ public class Singleton {
     BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
     String inputLine;
     JSONParser parser = new JSONParser();
-    inputLine = in.readLine();
+    inputLine = in.readLine(); 
     
     //-------------------------------------------------
     URL url2 = new URL("http://api.nobelprize.org/v1/laureate.json");
@@ -61,8 +62,6 @@ public class Singleton {
     String imm = "https://www.nobelprize.org/images/literature.jpg";
     image1 = new Image(imm);
     
-    
-    
     //-----------------------------------------------------------
     Gson g = new GsonBuilder().setPrettyPrinting().create();
     
@@ -84,6 +83,8 @@ public class Singleton {
         } catch (Exception ex) {
             System.out.println("\n--------Something wrong with Singleton!!!------- \n " + ex);
         }
+        
         return singleton;
     }
+    
 }

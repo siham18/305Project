@@ -25,6 +25,15 @@ public class PrizesClass {
         return false;
     }
     
+     public ArrayList<Integer> listOfID(){
+        
+         ArrayList<Integer> list =  new ArrayList<>();
+         for(int i =0; i< this.laureates.size(); i++){
+             list.add(this.laureates.get(i).id);
+         }
+         return list;
+     }
+    
     public ArrayList <LaureatesClass> getLaureateList(ArrayList <LaureatesClass> list){
         //System.out.println("In func");
         for(int i = 0; i < this.laureates.size(); i++){

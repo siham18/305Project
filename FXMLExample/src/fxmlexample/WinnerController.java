@@ -29,48 +29,38 @@ public class WinnerController implements Initializable {
 
     @FXML
     private ImageView pic4;
-    private Text name;
-    public LaureatesClass laur;
-    public PrizesClass prize;
+    @FXML private Text name;
+    //@FXML private Text namef;
+    @FXML public LaureatesClass laur;
+    @FXML public PrizesClass prize;
     JsonObject singleton;
+    public static int ID;
     /**
      * Initializes the controller class.
      */
     
     public void fill(){
         singleton = Singleton.getInstance();
-        laur = singleton.getLaur(928);
+        laur = singleton.getLaur(singleton.getLastId());
+        System.out.println(" -- " + singleton.ID.size() + " -- ");
         prize = singleton.getPrize(laur);
-        //System.out.println(prize.category + ":" + prize.year + ":" + laur.firstname);
-        
+        //String names= laur.firstname;
+        //namef.setText(names);
     }
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         fill();
-        System.out.println(prize.category + ":" + prize.year + ":" + laur.firstname);
+        if(prize!= null){
         ImageCl image = new ImageCl(prize.category, ""+prize.year, laur.surname);
         String im = image.getURL();
         Image image2 = new Image(im);
         System.out.println(im);
         pic4.setImage(image2);
-       
+        }
+        else{
+            System.out.println("GETS NULL FOR PRIZES");
+        }
     }
-    
-    /*
-    @FXML
-    public void goBack(ActionEvent event)throws Exception{
-       
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("LaureateSearch.fxml"));
-        Parent queryResult = (Parent)fxml.load();
-        
-        Scene newScene = new Scene(queryResult);
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(newScene);
-        stage.show();
-    }
-    */
-    
 }
