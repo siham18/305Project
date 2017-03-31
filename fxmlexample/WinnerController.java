@@ -31,18 +31,23 @@ public class WinnerController implements Initializable {
     private ImageView pic4;
     private Button Back;
     private Text name;
+    String year;
+    String category;
+    String lastname;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ImageCl image = new ImageCl("physics", "1935", "chadwick");
+        
+    }
+    public void picData(String category, String year, String lastname){
+        ImageCl image = new ImageCl(category, year, lastname);
         String im = image.getURL();
         Image image2 = new Image(im);
         //System.out.println(im);
         pic4.setImage(image2);
-    }
-    
+   }
     @FXML
     public void goBack(ActionEvent event)throws Exception{
        

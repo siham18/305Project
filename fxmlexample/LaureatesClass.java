@@ -10,7 +10,10 @@ package fxmlexample;
  * @author Siham
  */
 public class LaureatesClass {
-    
+    // I don't think I would keep ID and share as ints. When displaying
+    // them in a table that will cause a bunch of grief. Can use string
+    // to int if you need to do a compare. I think I would change them
+    // to String here.
     public int id;
     public String firstname;
     public String surname;

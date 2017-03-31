@@ -73,6 +73,23 @@ public class NewWindowController implements Initializable{
         stage.setScene(newScene);
         stage.show();
     }
+    @FXML public void openLaureate(ActionEvent event) throws Exception{
+
+        FXMLLoader fxmll = new FXMLLoader(getClass().getResource("winner.fxml"));
+        Parent queryResult = (Parent)fxmll.load();
+        
+        Laureate chosen = table.getSelectionModel().getSelectedItem();
+        
+        WinnerController controller = fxmll.<WinnerController>getController();
+        controller.picData(chosen.category, chosen.year, chosen.surname.toLowerCase());
+        
+        System.out.println(chosen.category);
+        
+        Scene newScene = new Scene(queryResult);
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(newScene);
+        stage.show();
+    }
     public void fillValue(){
         choices.getSelectionModel().getSelectedItem();
     }
@@ -121,6 +138,7 @@ public class NewWindowController implements Initializable{
         url += getInput();
         
         URL nobelUrl = new URL(url);
+        System.out.println(url);
         URLConnection con = nobelUrl.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
@@ -141,22 +159,26 @@ public class NewWindowController implements Initializable{
                 if(person.getSurname().contains(fieldText.getText())){
                     everyoneList.add(person);
                 }
-            } else {
+            } else if ("category".equals(choices.getSelectionModel().getSelectedItem())){
+                if(person.getCategory().contains(comboField.getSelectionModel().getSelectedItem().toString()))
+                    everyoneList.add(person);
+            } else if ("year".equals(choices.getSelectionModel().getSelectedItem())){
+                //if(person.getYear().contains(f))
+            }
+            
+            else {
                 everyoneList.add(person);
             }
             
         }
     }
     private String getInput() {
-        String returnValue = "";
-        if("category".equals(choices.getSelectionModel().getSelectedItem())||
+        String returnValue = "laureate.json?";
+        /*if("category".equals(choices.getSelectionModel().getSelectedItem()) ||
                 "year".equals(choices.getSelectionModel().getSelectedItem())||
                 "numberOfLaureates".equals(choices.getSelectionModel().getSelectedItem())  ){
-            returnValue += "prize.json?";
-        }
-        else {
-            returnValue += "laureate.json?";
-        }
+            return returnValue;
+        }*/
         if ("gender".equals(choices.getSelectionModel().getSelectedItem())){
             returnValue += "gender=" + gender.getSelectedToggle().getUserData();
         }
@@ -186,9 +208,6 @@ public class NewWindowController implements Initializable{
         }
         return returnValue;
     }   
-    public void grabPicture() throws MalformedURLException, IOException{
-        
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         choices.getItems().setAll(content);
@@ -228,13 +247,13 @@ public class NewWindowController implements Initializable{
         public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
             if ("category".equals(newValue)){
                 comboField.getItems().clear();
-                comboField.getItems().addAll("physics", "english", "others");
+                comboField.getItems().addAll("physics", "medicine", "peace", "economics", "chemistry", "literature");
             }
             if ("bornCountry".equals(newValue) || "diedCountry".equals(newValue) || 
                     "bornCity".equals(newValue) || "diedCity".equals(newValue)||
                     "surname".equals(newValue) || "firstname".equals(newValue)){
                 fieldText.setVisible(true);
-                fieldText.setText("********Insert here***********");
+                fieldText.setText("**Insert here**");
             }
             else {
                 fieldText.setVisible(false);

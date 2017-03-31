@@ -80,6 +80,7 @@
                                           </AnchorPane>
                                       </items>
                                     </SplitPane>
+                                    <Button mnemonicParsing="false" onAction="#openLaureate" text="Show Bio" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
